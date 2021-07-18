@@ -1,0 +1,10 @@
+.property-main {
+  height: 100%;
+}
+.app-header-container {
+  height: 7.5%;
+}
+.main-container {
+  min-height: 75%;
+  width: 100%;
+}
