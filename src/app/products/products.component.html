@@ -1,1 +1,74 @@
-<h1>App Under Development!</h1>
+<div class="wrapper">
+  <div class="container-fostrap">
+    <div class="content">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-4" *ngFor="let prop of properties">
+            <div class="card">
+              <a class="img-card">
+                <img
+                  src="https://www.property-arena.com/admin/images/project_image/gour-city/real-estate-property-in-Gurgaon.jpg"
+                />
+              </a>
+              <div class="card-content" (click)="open(prop, property)">
+                <h4 class="card-title">
+                  <a>
+                    {{ prop.title }}
+                  </a>
+                </h4>
+                <ul>
+                  <li>Location: {{ prop.location }}</li>
+                  <li>{{ prop.area_size }} {{ prop.price_rate }}</li>
+                </ul>
+              </div>
+              <div class="card-actions">
+                <button class="btn btn-outline-success">Save</button>
+                <button class="btn btn-outline-primary">Get Appointment</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template
+  #property
+  let-c="close"
+  let-d="dismiss"
+  class="modal fade"
+  tabindex="-1"
+  role="dialog"
+  aria-hidden="true"
+>
+  <div class="modal-header">
+    <h5 class="modal-title">{{ clickProperty.title }}</h5>
+    <button type="button" class="close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <a class="img-card">
+      <img
+        src="https://www.property-arena.com/admin/images/project_image/gour-city/real-estate-property-in-Gurgaon.jpg"
+      />
+    </a>
+    <br />
+    <h5>{{ clickProperty.price }}</h5>
+    <ul>
+      <li>Location: {{ clickProperty.location }}</li>
+      <li>{{ clickProperty.area_size }} {{ clickProperty.price_rate }}</li>
+      <li>{{ clickProperty.property_details }}</li>
+    </ul>
+    <p>
+      Agent: {{ clickProperty.agent }} Contact: {{ clickProperty.contact_no }}
+    </p>
+    <p>Posted On {{ clickProperty.posted_on }}</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-success" style="margin: 0">
+      Save
+    </button>
+    <button type="button" class="btn btn-primary">Get Appointment</button>
+  </div>
+</ng-template>

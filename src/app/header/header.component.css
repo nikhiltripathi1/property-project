@@ -1,0 +1,42 @@
+.btn-logout {
+  color: white !important;
+}
+.nav-custom {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+.loggedin-list {
+  display: flex;
+  justify-content: space-between;
+}
+.wrapper {
+  width: 10rem;
+}
+.wrapper ul {
+  margin: 0;
+  display: flex;
+  justify-content: space-around;
+}
+.name {
+  font-size: 1.2rem;
+  margin: 5px auto;
+  text-transform: uppercase;
+}
+.icon {
+  font-size: 1.2rem;
+  margin: 5px 0;
+}
+.nav-content {
+  height: 10rem;
+  padding-top: 5rem;
+}
+.nav-content ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.nav-content ul li {
+  margin: auto 5px;
+}

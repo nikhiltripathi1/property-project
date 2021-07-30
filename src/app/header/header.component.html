@@ -5,18 +5,56 @@
     mb-3
     fixed-top
     app-header
+    loggedin-list
   "
+  *ngIf="isLoggedIn$ | async as loggedIn; else loading"
 >
-  Property Deals
-
-  <div *ngIf="false" class="collapse navbar-collapse">
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <a class="btn btn-dark">Log Out</a>
-      </li>
-    </ul>
+  <div *ngIf="loggedIn" class="nav-custom">
+    <div class="icon">Property Deals</div>
+    <div class="search-bar">
+      <form class="form-inline">
+        <input
+          class="form-control mr-sm-2"
+          [(ngModel)]="SearchTerm"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+        />
+        <button
+          class="btn btn-dark my-2 my-sm-0"
+          type="submit"
+          [routerLink]="['/search']"
+          [queryParams]="{ query: SearchTerm }"
+        >
+          Search
+        </button>
+      </form>
+    </div>
+    <div class="wrapper">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item name">
+          <strong>{{ currUser }}</strong>
+        </li>
+        <li>
+          <button class="btn" type="button" (click)="toggler()">&#9776;</button>
+        </li>
+      </ul>
+    </div>
   </div>
 </nav>
+<div *ngIf="toggle" class="nav-content bg-light">
+  <ul>
+    <li>
+      <a class="btn btn-dark btn-logout">Saved Properties</a>
+    </li>
+    <li>
+      <a class="btn btn-dark btn-logout">Your Appointments</a>
+    </li>
+    <li>
+      <a class="btn btn-dark btn-logout" (click)="onLogout()">Log Out</a>
+    </li>
+  </ul>
+</div>
 <ng-template #loading>
   <nav
     class="

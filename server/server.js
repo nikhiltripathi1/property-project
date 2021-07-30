@@ -12,6 +12,7 @@ app.use(express.json());
 
 //All Routes
 app.use("/api/user", require("./routes/user"));
+app.use("/api/property", require("./routes/property"));
 
 mongoose
   .connect(constants.uri, {
