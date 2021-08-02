@@ -1,0 +1,63 @@
+.heading {
+  margin: 2rem 0;
+}
+
+.custom-search-container {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  height: 74%;
+}
+.custom-search-card {
+  background-color: #ffffff;
+  padding: 1rem;
+  margin: 2.2rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: rgba(127, 157, 187, 0.2) 0px 8px 24px;
+}
+.card {
+  margin-bottom: 1rem;
+}
+.card:hover {
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.img-card {
+  width: 100%;
+  height: 200px;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  display: block;
+  overflow: hidden;
+}
+.img-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: all 0.25s ease;
+}
+.card-content {
+  padding: 15px;
+  height: 10rem;
+  text-align: left;
+}
+.card-title {
+  margin-top: 0px;
+  font-weight: 700;
+  font-size: 1.65em;
+}
+.card-title a {
+  color: #000;
+  text-decoration: none !important;
+}
+.card-actions {
+  border-top: 1px solid #d4d4d4;
+  padding: 1rem;
+}
+.card-actions button {
+  text-decoration: none !important;
+  padding: 10px;
+  margin-right: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}

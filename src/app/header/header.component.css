@@ -1,4 +1,20 @@
-.btn-logout {
+.favorite-icon {
+  background: url("../icons/heart-solid.svg") 16% 0% no-repeat;
+  width: 22px;
+  height: 22px;
+  display: inline-block;
+  margin: 5px;
+  zoom: 109%;
+}
+.appointment-icon {
+  background: url("../icons/calendar-check-solid.svg") 16% 0% no-repeat;
+  width: 22px;
+  height: 22px;
+  display: inline-block;
+  zoom: 109%;
+  margin: 5px;
+}
+.btn-logout:hover {
   color: white !important;
 }
 .nav-custom {
@@ -11,7 +27,7 @@
   justify-content: space-between;
 }
 .wrapper {
-  width: 10rem;
+  width: 18rem;
 }
 .wrapper ul {
   margin: 0;
@@ -26,6 +42,9 @@
 .icon {
   font-size: 1.2rem;
   margin: 5px 0;
+}
+.icon a:hover {
+  text-decoration: none;
 }
 .nav-content {
   height: 10rem;

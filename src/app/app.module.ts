@@ -17,6 +17,9 @@ import { AngularEmojisModule } from 'angular-emojis';
 import { ClickOutsideModule } from 'ng-click-outside';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SearchComponent } from './search/search.component';
+import { FavouriteComponent } from './favourite/favourite.component';
+import { AppointmentsComponent } from './appointments/appointments.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +28,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     LoginComponent,
     SignupComponent,
     ProductsComponent,
+    SearchComponent,
+    FavouriteComponent,
+    AppointmentsComponent,
   ],
   imports: [
     BrowserModule,

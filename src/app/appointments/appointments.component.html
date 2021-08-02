@@ -1,0 +1,48 @@
+<div class="container custom-search-container">
+  <div class="row">
+    <br />
+    <div class="col-lg-8 col-md-8 col-sm-12 heading">
+      <h5>My Appointments</h5>
+    </div>
+  </div>
+  <ng-container *ngIf="appointments.length > 0; else NoResult">
+    <div class="container">
+      <div class="row hidden-md-up">
+        <div class="col-md-4" *ngFor="let appointment of appointments">
+          <div class="card custom-card">
+            <div class="card-block">
+              <h4 class="card-title">
+                Appointment with {{ appointment.property.agent }}
+              </h4>
+              <h6 class="card-subtitle text-muted">
+                Date: {{ appointment.date }} Time: {{ appointment.time }}
+              </h6>
+              <p class="card-text p-y-1">
+                Property: {{ appointment.property.title }}
+              </p>
+
+              <ul>
+                <li>Location: {{ appointment.property.location }}</li>
+                <li>
+                  {{ appointment.property.area_size }}
+                  {{ appointment.property.price_rate }}
+                </li>
+                <li>Contact No.: {{ appointment.property.contact_no }}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <ng-template #NoResult>
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card custom-search-card">
+          <div class="no-result-icon mb-2 mt-2"></div>
+          <h3>No Appointments</h3>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</div>

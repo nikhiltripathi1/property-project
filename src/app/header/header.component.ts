@@ -20,6 +20,7 @@ export class HeaderComponent implements OnInit {
     this.currUser = localStorage.getItem('userName');
   }
   onLogout() {
+    this.toggle = false;
     this.authService.logout();
   }
   toggler() {

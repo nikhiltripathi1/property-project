@@ -47,6 +47,11 @@ const PropertySchema = new schema({
     required: true,
     trim: true,
   },
+  img: {
+    type: String,
+    required: true,
+    trim: true,
+  },
 });
 
 module.exports = Property = mongoose.model("property", PropertySchema);

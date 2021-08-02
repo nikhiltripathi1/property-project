@@ -16,7 +16,37 @@ export class PropertyService {
 
   getProperties(): Observable<boolean> {
     return this.httpClient
-      .get<any>(constants.SERVER_URL + 'api/property/')
+      .get<any>(constants.SERVER_URL + 'api/property/', {
+        headers: new HttpHeaders({
+          Authorization: localStorage.getItem('currentUser') || [],
+        }),
+      })
+      .pipe(
+        retry(3),
+        catchError(this.handleError) // then handle the error
+      );
+  }
+
+  getSavedProperties(): Observable<boolean> {
+    return this.httpClient
+      .get<any>(constants.SERVER_URL + 'api/property/myfavourite/', {
+        headers: new HttpHeaders({
+          Authorization: localStorage.getItem('currentUser') || [],
+        }),
+      })
+      .pipe(
+        retry(3),
+        catchError(this.handleError) // then handle the error
+      );
+  }
+
+  getAppointments(): Observable<boolean> {
+    return this.httpClient
+      .get<any>(constants.SERVER_URL + 'api/property/myappointments/', {
+        headers: new HttpHeaders({
+          Authorization: localStorage.getItem('currentUser') || [],
+        }),
+      })
       .pipe(
         retry(3),
         catchError(this.handleError) // then handle the error
@@ -25,13 +55,54 @@ export class PropertyService {
 
   searchProperty(query: string): Observable<boolean> {
     return this.httpClient
-      .get<any>(constants.SERVER_URL + 'api/product/search/' + query)
+      .get<any>(constants.SERVER_URL + 'api/property/search/' + query, {
+        headers: new HttpHeaders({
+          Authorization: localStorage.getItem('currentUser') || [],
+        }),
+      })
       .pipe(
         retry(3),
         catchError(this.handleError) // then handle the error
       );
   }
 
+  saveProperty(saveParams: any): Observable<boolean> {
+    return this.httpClient
+      .put<any>(
+        constants.SERVER_URL +
+          'api/user/save/' +
+          saveParams.flag +
+          '/' +
+          saveParams.id,
+        {},
+        {
+          headers: new HttpHeaders({
+            Authorization: localStorage.getItem('currentUser') || [],
+          }),
+        }
+      )
+      .pipe(
+        retry(3),
+        catchError(this.handleError) // then handle the error
+      );
+  }
+
+  bookAppointment(appointment: any): Observable<boolean> {
+    return this.httpClient
+      .post<any>(
+        constants.SERVER_URL + 'api/property/bookappointment/',
+        appointment,
+        {
+          headers: new HttpHeaders({
+            Authorization: localStorage.getItem('currentUser') || [],
+          }),
+        }
+      )
+      .pipe(
+        retry(3),
+        catchError(this.handleError) // then handle the error
+      );
+  }
   private handleError(error: HttpErrorResponse) {
     if (error.status === 0) {
       // A client-side or network error occurred. Handle it accordingly.

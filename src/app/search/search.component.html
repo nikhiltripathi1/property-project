@@ -1,52 +1,66 @@
-<div class="wrapper">
-  <div class="container-fostrap">
-    <div class="content">
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-12 col-sm-4" *ngFor="let prop of properties">
-            <div class="card">
-              <a class="img-card">
-                <img src="{{ prop.img }}" />
-              </a>
-              <div class="card-content" (click)="open(prop, property)">
-                <h4 class="card-title">
-                  <a>
-                    {{ prop.title }}
-                  </a>
-                </h4>
-                <ul>
-                  <li>Location: {{ prop.location }}</li>
-                  <li>{{ prop.area_size }} {{ prop.price_rate }}</li>
-                </ul>
-              </div>
-              <div class="card-actions">
-                <button
-                  class="btn btn-outline-success"
-                  *ngIf="!prop.saved"
-                  (click)="saveProperty(prop._id, prop.saved)"
-                >
-                  Save
-                </button>
-                <button
-                  class="btn btn-success"
-                  *ngIf="prop.saved"
-                  (click)="saveProperty(prop._id, prop.saved)"
-                >
-                  Saved
-                </button>
-                <button
-                  class="btn btn-outline-primary"
-                  (click)="open(prop, appointment)"
-                >
-                  Book Appointment
-                </button>
-              </div>
+<div class="container custom-search-container">
+  <div class="row">
+    <br />
+    <div class="col-lg-8 col-md-8 col-sm-12 heading">
+      <h5>Results for {{ SearchTerm }}</h5>
+    </div>
+  </div>
+  <ng-container *ngIf="properties.length > 0; else NoResult">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-4" *ngFor="let prop of properties">
+          <div class="card">
+            <a class="img-card">
+              <img src="{{ prop.img }}" />
+            </a>
+            <div class="card-content" (click)="open(prop, property)">
+              <h4 class="card-title">
+                <a>
+                  {{ prop.title }}
+                </a>
+              </h4>
+              <ul>
+                <li>Location: {{ prop.location }}</li>
+                <li>{{ prop.area_size }} {{ prop.price_rate }}</li>
+              </ul>
+            </div>
+            <div class="card-actions">
+              <button
+                class="btn btn-outline-success"
+                *ngIf="!prop.saved"
+                (click)="saveProperty(prop._id, prop.saved)"
+              >
+                Save
+              </button>
+              <button
+                class="btn btn-success"
+                *ngIf="prop.saved"
+                (click)="saveProperty(prop._id, prop.saved)"
+              >
+                Saved
+              </button>
+              <button
+                class="btn btn-outline-primary"
+                (click)="open(prop, appointment)"
+              >
+                Book Appointment
+              </button>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </ng-container>
+  <ng-template #NoResult>
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card custom-search-card">
+          <div class="no-result-icon mb-2 mt-2"></div>
+          <h3>No Results</h3>
+        </div>
+      </div>
+    </div>
+  </ng-template>
 </div>
 <ng-template
   #property
@@ -81,7 +95,7 @@
   </div>
   <div class="modal-footer">
     <button
-      class="btn btn-outline-success"
+      class="btn btn-success"
       *ngIf="!clickProperty.saved"
       (click)="saveProperty(clickProperty._id, clickProperty.saved)"
     >
@@ -94,15 +108,12 @@
     >
       Saved
     </button>
-    <button
-      type="button"
-      class="btn btn-primary"
-      (click)="open(clickProperty, appointment)"
-    >
+    <button class="btn btn-primary" (click)="open(clickProperty, appointment)">
       Book Appointment
     </button>
   </div>
 </ng-template>
+
 <ng-template
   #appointment
   let-c="close"
@@ -119,9 +130,6 @@
     </button>
   </div>
   <div class="modal-body">
-    <div *ngIf="message != ''" class="alert alert-info" role="alert">
-      {{ message }}
-    </div>
     <form>
       <div class="form-group">
         <label class="form-label">Choose Date</label>
@@ -135,11 +143,7 @@
   </div>
 
   <div class="modal-footer">
-    <button
-      type="button"
-      class="btn btn-outline-primary"
-      (click)="bookAppointment(clickProperty._id)"
-    >
+    <button type="button" class="btn btn-outline-primary">
       Book Appointment
     </button>
   </div>

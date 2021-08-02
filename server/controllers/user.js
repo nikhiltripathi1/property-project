@@ -90,6 +90,24 @@ exports.UserLogin = (req, res) => {
     });
 };
 
+exports.saveProperty = (req, res) => {
+  if (req.params.flag == "false") {
+    User.updateOne(
+      { _id: req.user.id },
+      { $push: { saved_property: req.params.prop_id } }
+    ).then(() => {
+      res.json({ msg: "property saved" });
+      console.log("saved");
+    });
+  } else {
+    User.updateOne(
+      { _id: req.user.id },
+      { $pull: { saved_property: req.params.prop_id } }
+    ).then(() => {
+      res.json({ msg: "property unsaved" });
+    });
+  }
+};
 //exports.userLogout = (req, res) => {
 //  req.session.destroy((err) => {
 //    if (err) throw err;
