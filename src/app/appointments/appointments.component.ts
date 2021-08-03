@@ -11,6 +11,7 @@ export class AppointmentsComponent implements OnInit {
   constructor(public propertyService: PropertyService) {}
 
   ngOnInit(): void {
+    document.body.style.overflow = 'auto';
     this.propertyService.getAppointments().subscribe((res: any) => {
       console.log(res);
       res.appointment.forEach((x: any) => {

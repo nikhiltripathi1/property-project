@@ -28,6 +28,10 @@ export class AuthenticationService {
 
   constructor(private http: HttpClient, private router: Router) {}
 
+  getLoggedinUser() {
+    return localStorage.getItem('userName');
+  }
+
   login(email: string, password: string) {
     return this.http
       .post<any>(`${constants.SERVER_URL}api/user/auth`, {
@@ -81,6 +85,7 @@ export class AuthenticationService {
   logout() {
     // remove user from local storage to log user out
     localStorage.removeItem('currentUser');
+    localStorage.removeItem('userName');
     this.loggedIn.next(false);
     this.router.navigate(['/login']);
   }

@@ -31,6 +31,7 @@ export class SignupComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    document.body.style.overflow = 'auto';
     this.loginForm = this.formBuilder.group({
       email: ['', Validators.compose([Validators.required, Validators.email])],
       password: [
@@ -40,7 +41,7 @@ export class SignupComponent implements OnInit {
       username: ['', Validators.compose([Validators.required])],
       phoneno: [
         '',
-        Validators.compose([Validators.required, Validators.minLength(10)]),
+        Validators.compose([Validators.required, Validators.minLength(8)]),
       ],
       repassword: ['', Validators.compose([Validators.required])],
     });

@@ -1,0 +1,49 @@
+.custom-menu {
+  position: absolute;
+  z-index: 99;
+  display: block;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  width: 300px;
+}
+.menu-list {
+  position: relative;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  height: 100vh;
+
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.menu-item {
+  padding: 1rem;
+  width: 100%;
+  margin-bottom: 1em;
+  text-align: center;
+}
+.menu-item:hover {
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.favorite-icon {
+  background: url("../icons/heart-solid.svg") 16% 0% no-repeat;
+  width: 22px;
+  height: 22px;
+  display: inline-block;
+  margin: 5px;
+  zoom: 109%;
+}
+.appointment-icon {
+  background: url("../icons/calendar-check-solid.svg") 16% 0% no-repeat;
+  width: 22px;
+  height: 22px;
+  display: inline-block;
+  zoom: 109%;
+  margin: 5px;
+}
+.btn-logout:hover {
+  color: white !important;
+}

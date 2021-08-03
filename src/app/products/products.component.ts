@@ -19,6 +19,7 @@ export class ProductsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    document.body.style.overflow = 'auto';
     this.propertyService.getProperties().subscribe((props: any) => {
       console.log(props);
       if (props) {

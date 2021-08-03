@@ -25,7 +25,6 @@ exports.saveProperty = (req, res) => {
     });
 };
 exports.getProperties = (req, res) => {
-  console.log(req.user);
   User.find({ _id: req.user.id }, { saved_property: 1 })
     .then((saved_prop) => {
       Property.find().then((prop) => res.json({ prop, saved_prop }));

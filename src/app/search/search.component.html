@@ -1,3 +1,4 @@
+<app-header></app-header>
 <div class="container custom-search-container">
   <div class="row">
     <br />
@@ -130,6 +131,9 @@
     </button>
   </div>
   <div class="modal-body">
+    <div *ngIf="message != ''" class="alert alert-info" role="alert">
+      {{ message }}
+    </div>
     <form>
       <div class="form-group">
         <label class="form-label">Choose Date</label>
@@ -143,7 +147,11 @@
   </div>
 
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-primary">
+    <button
+      type="button"
+      class="btn btn-outline-primary"
+      (click)="bookAppointment(clickProperty._id)"
+    >
       Book Appointment
     </button>
   </div>

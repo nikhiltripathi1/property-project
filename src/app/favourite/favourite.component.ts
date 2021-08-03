@@ -11,12 +11,14 @@ export class FavouriteComponent implements OnInit {
   properties: any[] = [];
   closeResult = '';
   clickProperty: any = {};
+  message: string = '';
   constructor(
     private modalService: NgbModal,
     public propertyService: PropertyService
   ) {}
 
   ngOnInit(): void {
+    document.body.style.overflow = 'auto';
     this.propertyService.getSavedProperties().subscribe((res: any) => {
       console.log(res);
       res.forEach((x: any) => {
@@ -58,5 +60,21 @@ export class FavouriteComponent implements OnInit {
           }
         }
       });
+  }
+  bookAppointment(id: any) {
+    const date = (<HTMLInputElement>document.getElementById('date')).value;
+    const time = (<HTMLInputElement>document.getElementById('time')).value;
+    if (date && time) {
+      this.propertyService
+        .bookAppointment({ date, time, property_id: id })
+        .subscribe((booked: any) => {
+          this.message = booked.msg;
+        });
+    } else {
+      this.message = 'Require All Fields';
+    }
+    setTimeout(() => {
+      this.message = '';
+    }, 3000);
   }
 }

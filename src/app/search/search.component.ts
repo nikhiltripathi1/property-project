@@ -14,6 +14,7 @@ export class SearchComponent implements OnInit {
   properties: any[] = [];
   closeResult = '';
   clickProperty: any = {};
+  message: string = '';
   constructor(
     private modalService: NgbModal,
     public propertyService: PropertyService,
@@ -21,6 +22,7 @@ export class SearchComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    document.body.style.overflow = 'auto';
     this.route.queryParamMap.subscribe((params) => {
       this.SearchTerm = params.get('query');
       this.properties = [];
@@ -74,5 +76,21 @@ export class SearchComponent implements OnInit {
           }
         }
       });
+  }
+  bookAppointment(id: any) {
+    const date = (<HTMLInputElement>document.getElementById('date')).value;
+    const time = (<HTMLInputElement>document.getElementById('time')).value;
+    if (date && time) {
+      this.propertyService
+        .bookAppointment({ date, time, property_id: id })
+        .subscribe((booked: any) => {
+          this.message = booked.msg;
+        });
+    } else {
+      this.message = 'Require All Fields';
+    }
+    setTimeout(() => {
+      this.message = '';
+    }, 3000);
   }
 }

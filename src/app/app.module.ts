@@ -20,6 +20,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SearchComponent } from './search/search.component';
 import { FavouriteComponent } from './favourite/favourite.component';
 import { AppointmentsComponent } from './appointments/appointments.component';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { AppointmentsComponent } from './appointments/appointments.component';
     SearchComponent,
     FavouriteComponent,
     AppointmentsComponent,
+    MenuComponent,
   ],
   imports: [
     BrowserModule,

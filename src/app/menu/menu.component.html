@@ -1,0 +1,17 @@
+<div class="custom-menu bg-light" id="cust-menu">
+  <ul class="menu-list">
+    <li class="menu-item" [routerLink]="['/myfavourite']">
+      <div class="favorite-icon btn" title="My Favorite Properties"></div>
+      My Favorites
+    </li>
+    <li class="menu-item" [routerLink]="['/myappointments']">
+      <div class="appointment-icon btn" title="My Appointments"></div>
+      My Appointments
+    </li>
+    <li class="" style="margin-top: 2rem">
+      <a class="btn btn-outline-dark btn-logout" (click)="onLogout()"
+        >Log Out</a
+      >
+    </li>
+  </ul>
+</div>

@@ -19,11 +19,14 @@ export class HeaderComponent implements OnInit {
     this.isLoggedIn$ = this.authService.isLoggedIn;
     this.currUser = localStorage.getItem('userName');
   }
-  onLogout() {
-    this.toggle = false;
-    this.authService.logout();
-  }
-  toggler() {
+  toggleClass() {
     this.toggle = !this.toggle;
+    if (this.toggle) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      {
+        document.body.style.overflow = 'auto';
+      }
+    }
   }
 }

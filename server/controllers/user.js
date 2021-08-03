@@ -97,7 +97,7 @@ exports.saveProperty = (req, res) => {
       { $push: { saved_property: req.params.prop_id } }
     ).then(() => {
       res.json({ msg: "property saved" });
-      console.log("saved");
+      //console.log("saved");
     });
   } else {
     User.updateOne(
