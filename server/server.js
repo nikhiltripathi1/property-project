@@ -23,8 +23,8 @@ mongoose
   .then(() => {
     console.log("CONNECTED TO DATABASE!");
   })
-  .catch(() => {
-    console.log("DATABASE CONNECTION FAILED!");
+  .catch((err) => {
+    console.log("DATABASE CONNECTION FAILED!", err);
   });
 
 app.listen(port, () => {
