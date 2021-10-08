@@ -1,6 +1,5 @@
 const uri =
-  "mongodb+srv://property:BNWHR6AQe3zwR9D@cluster0.oa8xh.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-
+  "mongodb+srv://root:kNvsHKtIKRdAUXr0@cluster0.vnrat.mongodb.net/inventory?retryWrites=true&w=majority";
 const jwtSecret = "Shhh!@ItsaJwtSeceret";
 module.exports = {
   uri: uri,
